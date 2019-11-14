@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "informacion_c")
-public class Info_Castellano implements Serializable {
+public class Info implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -25,11 +25,11 @@ public class Info_Castellano implements Serializable {
 	@Column(name = "id_len")
 	private int id_len;
 
-	public Info_Castellano() {
+	public Info() {
 
 	}
 
-	public Info_Castellano(int id, String info, String lengua, int id_len) {
+	public Info(int id, String info, String lengua, int id_len) {
 
 		this.id = id;
 		this.info = info;
@@ -71,6 +71,7 @@ public class Info_Castellano implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Info [id=" + id + ", info=" + info + ", lengua=" + lengua + ", id_leng=" + id_len + "]";
+		return "Info [id=" + id + ", info=" + info + ", lengua=" + lengua + ", id_len=" + id_len + "]";
 	}
+
 }

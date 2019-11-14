@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.proyect1.prueba.domain.Info_Castellano;
+import com.proyect1.prueba.domain.Info;
 import com.proyect1.prueba.repository.InfoRepository;
 
 @RestController
@@ -22,16 +22,16 @@ public class InfoController {
 	InfoRepository inforepository;
 	
 	@GetMapping("/infos")
-	public List<Info_Castellano> findall() {
+	public List<Info> findall() {
 		return inforepository.findAll();
 	}
 	@PostMapping("/infos")
-	public Info_Castellano guardar(@RequestBody Info_Castellano info) {
+	public Info guardar(@RequestBody Info info) {
 		return inforepository.save(info);
 	}
 
 	@GetMapping("/infos/{id}")
-	public Optional<Info_Castellano> buscarid(@PathVariable int id) {
+	public Optional<Info> buscarid(@PathVariable int id) {
 		return inforepository.findById(id);
 	}
 	@DeleteMapping("/infos/{id}")
