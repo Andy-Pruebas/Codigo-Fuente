@@ -12,30 +12,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.proyect1.prueba.domain.Info_Castellano;
-import com.proyect1.prueba.repository.InfoRepository;
+import com.proyect1.prueba.domain.Info_Quechua;
+import com.proyect1.prueba.repository.InfoQRepository;
 
 @RestController
 @RequestMapping("/apis")
-public class InfoController {
+public class InfoQController {
 	@Autowired
-	InfoRepository inforepository;
-	
-	@GetMapping("/infos")
-	public List<Info_Castellano> findall() {
-		return inforepository.findAll();
-	}
-	@PostMapping("/infos")
-	public Info_Castellano guardar(@RequestBody Info_Castellano info) {
-		return inforepository.save(info);
+	InfoQRepository infoqrepository;
+
+	@GetMapping("/infosq")
+	public List<Info_Quechua> findall() {
+		return infoqrepository.findAll();
 	}
 
-	@GetMapping("/infos/{id}")
-	public Optional<Info_Castellano> buscarid(@PathVariable int id) {
-		return inforepository.findById(id);
+	@PostMapping("/infosq")
+	public Info_Quechua guardar(@RequestBody Info_Quechua info) {
+		return infoqrepository.save(info);
 	}
-	@DeleteMapping("/infos/{id}")
+	@GetMapping("/infosq/{id}")
+	public Optional<Info_Quechua> buscarid(@PathVariable int id) {
+		return infoqrepository.findById(id);
+	}
+	@DeleteMapping("/infosq/{id}")
 	void eliminar(@PathVariable int id) {
-		inforepository.deleteById(id);
+		infoqrepository.deleteById(id);
 	}
 }
+
