@@ -36,7 +36,6 @@ public class UserController {
 	public Optional<User> buscarid(@PathVariable int id_usuario) {
 		return repository.findById(id_usuario);
 	}
-
 	@DeleteMapping("/users/{id_usuario}")
 	void eliminar(@PathVariable int id_usuario) {
 		repository.deleteById(id_usuario);
