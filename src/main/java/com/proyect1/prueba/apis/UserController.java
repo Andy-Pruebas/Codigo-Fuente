@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,22 @@ public class UserController {
 	public Optional<User> buscarid(@PathVariable int id_usuario) {
 		return repository.findById(id_usuario);
 	}
+
+	@PutMapping("/users/{id_usuario}")
+	User updateUser(@RequestBody User newUser, @PathVariable int id_usuario) {
+		return repository.findById(id_usuario).map(user -> {
+			user.setUsuario(newUser.getUsuario());
+			user.setNombres(newUser.getNombres());
+			user.setApellidos(newUser.getApellidos());
+			user.setDni(newUser.getDni());
+			user.setContraseña(newUser.getContraseña());
+			return repository.save(user);
+		}).orElseGet(() -> {
+			newUser.setId_usuario(id_usuario);
+			return repository.save(newUser);
+		});
+	}
+
 	@DeleteMapping("/users/{id_usuario}")
 	void eliminar(@PathVariable int id_usuario) {
 		repository.deleteById(id_usuario);
