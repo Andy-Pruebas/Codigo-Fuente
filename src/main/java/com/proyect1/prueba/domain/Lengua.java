@@ -12,56 +12,27 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "informacion_c")
-public class Info implements Serializable {
+@Table(name = "lengua")
+public class Lengua implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
-	@Column(name = "info")
-	private String info;
-	@Column(name = "lengua")
-	private String lengua;
 	@Column(name = "id_len")
 	private int id_len;
-	
-	public Info() {
+	@Column(name = "lengua")
+	private String lengua;
+
+	public Lengua() {
 		super();
 	}
 
-	public Info(int id, String info, String lengua, int id_len) {
+	public Lengua(int id_len, String lengua) {
 		super();
-		this.id = id;
-		this.info = info;
-		this.lengua = lengua;
 		this.id_len = id_len;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getInfo() {
-		return info;
-	}
-
-	public void setInfo(String info) {
-		this.info = info;
-	}
-
-	public String getLengua() {
-		return lengua;
-	}
-
-	public void setLengua(String lengua) {
 		this.lengua = lengua;
 	}
 
@@ -73,9 +44,17 @@ public class Info implements Serializable {
 		this.id_len = id_len;
 	}
 
+	public String getLengua() {
+		return lengua;
+	}
+
+	public void setLengua(String lengua) {
+		this.lengua = lengua;
+	}
+
 	@Override
 	public String toString() {
-		return "Info [id=" + id + ", info=" + info + ", lengua=" + lengua + ", id_len=" + id_len + "]";
+		return "Lengua [id_len=" + id_len + ", lengua=" + lengua + "]";
 	}
 
 }

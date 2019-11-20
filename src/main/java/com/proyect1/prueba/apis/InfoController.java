@@ -17,6 +17,7 @@ import com.proyect1.prueba.repository.InfoRepository;
 @RestController
 @RequestMapping("/apis")
 public class InfoController {
+	
 	@Autowired
 	InfoRepository inforepository;
 	
