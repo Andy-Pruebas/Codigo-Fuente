@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
@@ -30,6 +32,7 @@ public class User implements Serializable {
 	private String apellidos;
 	@Column(name = "dni")
 	private int dni;
+	@Email(message="Correo Invalido")
 	@Column(name = "correo")
 	private String correo;
 	@Column(name = "contraseña")

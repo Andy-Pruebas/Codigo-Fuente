@@ -40,7 +40,6 @@ public class InfoController {
 			info.setId(newInfo.getId());
 			info.setInfo(newInfo.getInfo());
 			info.setId_len(newInfo.getId_len());
-			info.setLengua(newInfo.getLengua());
 			return inforepository.save(info);
 		}).orElseGet(()->{
 			newInfo.setId(id);
