@@ -3,10 +3,8 @@ package com.proyect1.prueba.apis;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -36,7 +34,7 @@ public class InfoController {
 		return inforepository.findById(id);
 	}
 	@PutMapping("/infos/{id}")
-	Info updateInfo(@RequestBody Info newInfo, @PathVariable int id){
+	public Info updateInfo(@RequestBody Info newInfo, @PathVariable int id){
 		return inforepository.findById(id).map(info->{
 			info.setId(newInfo.getId());
 			info.setInfo(newInfo.getInfo());
@@ -49,7 +47,7 @@ public class InfoController {
 		});
 	}
 	@DeleteMapping("/infos/{id}")
-	void eliminar(@PathVariable int id) {
+	public void eliminar(@PathVariable int id) {
 		inforepository.deleteById(id);
 	}
 }

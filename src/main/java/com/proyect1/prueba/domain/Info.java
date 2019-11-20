@@ -26,11 +26,11 @@ public class Info implements Serializable {
 	private int id_len;
 
 	public Info() {
-
+		super();
 	}
 
 	public Info(int id, String info, String lengua, int id_len) {
-
+		super();
 		this.id = id;
 		this.info = info;
 		this.lengua = lengua;

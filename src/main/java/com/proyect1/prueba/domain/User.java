@@ -32,11 +32,12 @@ public class User implements Serializable {
 	private String contraseña;
 
 	public User() {
-
+		super();
 	}
 
 	public User(int id_usuario, String usuario, String nombres, String apellidos, int dni, String correo,
 			String contraseña) {
+		super();
 		this.id_usuario = id_usuario;
 		this.usuario = usuario;
 		this.nombres = nombres;

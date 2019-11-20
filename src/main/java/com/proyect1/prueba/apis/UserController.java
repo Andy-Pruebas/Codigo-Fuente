@@ -3,10 +3,8 @@ package com.proyect1.prueba.apis;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -39,7 +37,7 @@ public class UserController {
 	}
 
 	@PutMapping("/users/{id_usuario}")
-	User updateUser(@RequestBody User newUser, @PathVariable int id_usuario) {
+	public User updateUser(@RequestBody User newUser, @PathVariable int id_usuario) {
 		return repository.findById(id_usuario).map(user -> {
 			user.setUsuario(newUser.getUsuario());
 			user.setNombres(newUser.getNombres());
@@ -54,7 +52,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/users/{id_usuario}")
-	void eliminar(@PathVariable int id_usuario) {
+	public void eliminar(@PathVariable int id_usuario) {
 		repository.deleteById(id_usuario);
 	}
 }
