@@ -1,17 +1,13 @@
 package com.proyect1.prueba.domain;
 
-//import javax.persistence.*;
-import javax.persistence.Column;
 import java.io.Serializable;
-//import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinTable;
-//import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -32,19 +28,16 @@ public class Info implements Serializable {
 	private String info;
 	@Column(name = "id_len")
 	private int id_len;
-	//@ManyToMany(cascade = CascadeType.ALL)
-	//@JoinTable(name = "lenguas", joinColumns = @JoinColumn(name = "id_len"), inverseJoinColumns = @JoinColumn(name = "id_len"))
-	//private Set<Lengua> lengua;
-
+	
 	public Info() {
 		super();
 	}
 
-	public Info(int id, String info, int id_len) {
+	public Info(int id, String info,int id_len) {
 		super();
 		this.id = id;
 		this.info = info;
-		this.id_len = id_len;
+		this.id_len=id_len;
 	}
 
 	public int getId() {
@@ -62,7 +55,7 @@ public class Info implements Serializable {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-
+	
 	public int getId_len() {
 		return id_len;
 	}

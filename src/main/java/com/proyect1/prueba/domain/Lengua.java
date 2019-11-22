@@ -2,6 +2,8 @@ package com.proyect1.prueba.domain;
 
 import javax.persistence.Column;
 import java.io.Serializable;
+
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class Lengua implements Serializable {
 	@Column(name = "lengua")
 	private String lengua;
 
+	
 	public Lengua() {
 		super();
 	}
@@ -43,15 +46,7 @@ public class Lengua implements Serializable {
 	public void setId_len(int id_len) {
 		this.id_len = id_len;
 	}
-
-	public String getLengua() {
-		return lengua;
-	}
-
-	public void setLengua(String lengua) {
-		this.lengua = lengua;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Lengua [id_len=" + id_len + ", lengua=" + lengua + "]";
