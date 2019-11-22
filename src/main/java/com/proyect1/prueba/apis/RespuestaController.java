@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.proyect1.prueba.domain.Pregunta;
-import com.proyect1.prueba.repository.PreguntaRepository;
+import com.proyect1.prueba.domain.Respuesta;
+import com.proyect1.prueba.repository.RespuestaRepository;
 
 @RestController
 @RequestMapping("/apis")
-public class PreguntaController {
+public class RespuestaController {
 	@Autowired
-	PreguntaRepository pregunta;
+	RespuestaRepository respuesta;
 
-	@GetMapping("/preguntas")
-	public List<Pregunta> findAll() {
-		return pregunta.findAll();
+	@GetMapping("/respuestas")
+	public List<Respuesta> findAll() {
+		return respuesta.findAll();
 	}
 
-	@GetMapping("/preguntas/{id_pregunta}")
-	public Optional<Pregunta> findid(@PathVariable int id_pregunta) {
-		return pregunta.findById(id_pregunta);
+	@GetMapping("/respuestas/{id_respuesta}")
+	public Optional<Respuesta> findid(@PathVariable int id_respuesta) {
+		return respuesta.findById(id_respuesta);
 	}
 }
