@@ -47,6 +47,14 @@ public class Lengua implements Serializable {
 		this.id_len = id_len;
 	}
 	
+	public String getLengua() {
+		return lengua;
+	}
+
+	public void setLengua(String lengua) {
+		this.lengua = lengua;
+	}
+
 	@Override
 	public String toString() {
 		return "Lengua [id_len=" + id_len + ", lengua=" + lengua + "]";
