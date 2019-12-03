@@ -28,7 +28,7 @@ public class AuthenticationRepository {
 	}
 
 	public User findByusuario(String usuario) throws EmptyResultDataAccessException {
-		String sql = "select * from usuarios where usuario=";
+		String sql = "select * from usuarios where usuario=?";
 		User user = jdbctemplate.queryForObject(sql, new RowMapper<User>() {
 			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 				User user = new User();
