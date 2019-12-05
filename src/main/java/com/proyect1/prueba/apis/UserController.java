@@ -30,7 +30,6 @@ public class UserController {
 
 	@PostMapping("/users")
 	public User guardar(@RequestBody User user) {
-		user.setContraseña(encoder.encode(user.getContraseña()));
 		return repository.save(user);
 	}
 
