@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -24,17 +25,23 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
 	private int id_usuario;
+	@NotNull(message = "campo obligatorio")
 	@Column(name = "usuario")
 	private String usuario;
+	@NotNull(message = "campo obligatorio")
 	@Column(name = "nombres")
 	private String nombres;
+	@NotNull(message = "campo obligatorio")
 	@Column(name = "apellidos")
 	private String apellidos;
+	@NotNull(message = "campo obligatorio")
 	@Column(name = "dni")
 	private int dni;
-	@Email(message="Correo Invalido")
+	@NotNull(message = "campo obligatorio")
+	@Email(message = "Correo Invalido")
 	@Column(name = "correo")
 	private String correo;
+	@NotNull(message = "campo obligatorio")
 	@Column(name = "contraseña")
 	private String contraseña;
 

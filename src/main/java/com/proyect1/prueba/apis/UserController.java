@@ -3,6 +3,7 @@ package com.proyect1.prueba.apis;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,8 @@ import com.proyect1.prueba.repository.UserRepository;
 @RestController
 @RequestMapping("/apis")
 public class UserController {
-
+	@Autowired
+	BCryptPasswordEncoder encoder;
 	@Autowired
 	UserRepository repository;
 
@@ -28,6 +30,7 @@ public class UserController {
 
 	@PostMapping("/users")
 	public User guardar(@RequestBody User user) {
+		user.setContraseña(encoder.encode(user.getContraseña()));
 		return repository.save(user);
 	}
 

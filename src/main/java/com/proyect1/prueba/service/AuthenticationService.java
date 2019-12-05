@@ -21,4 +21,5 @@ public class AuthenticationService {
 	public User findByusuario(String usuario)throws EmptyResultDataAccessException{
 		return  authenticationrepository.findByusuario(usuario);
 	}
+	
 }
