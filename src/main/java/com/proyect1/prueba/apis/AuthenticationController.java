@@ -16,7 +16,7 @@ public class AuthenticationController {
 	private AuthenticationService authenticationservice;
 	
 	@PostMapping("Login")
-	public User login(@RequestParam(required=false) String usuario, @RequestParam(required=false) String contraseña){
+	public User login(@RequestParam(required=false,name="usuario") String usuario, @RequestParam(required=false,name="contraseña") String contraseña){
 		User user= authenticationservice.login(usuario, contraseña);
 		return user;
 	}
