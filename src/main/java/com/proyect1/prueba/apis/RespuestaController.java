@@ -23,7 +23,7 @@ public class RespuestaController {
 		return respuestar.findAll();
 	}
 	@PostMapping("/respuestas")
-	public Respuesta almacena(@RequestBody Respuesta respuesta) {
+	public Respuesta guardar(@RequestBody Respuesta respuesta) {
 		return respuestar.save(respuesta);
 	}
 	@GetMapping("/respuestas/{id_respuesta}")
