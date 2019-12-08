@@ -23,10 +23,12 @@ public class LenguaController {
 	public List<Lengua> findAll() {
 		return lenguar.findAll();
 	}
+
 	@PostMapping("/lenguas")
-	public Lengua almacen(@RequestBody Lengua lengua){
+	public Lengua almacen(@RequestBody Lengua lengua) {
 		return lenguar.save(lengua);
 	}
+
 	@GetMapping("/lenguas/{id_leng}")
 	public Optional<Lengua> findid(@PathVariable int id_leng) {
 		return lenguar.findById(id_leng);

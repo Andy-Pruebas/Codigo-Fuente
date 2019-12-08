@@ -22,52 +22,35 @@ public class Info implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+	@Column(name = "id_infoc")
+	private int id_infoc;
 	@Column(name = "info")
 	private String info;
 	@Column(name = "id_len")
 	private int id_len;
 	
-	public Info() {
-		super();
+	public int getId_infoc() {
+		return id_infoc;
 	}
-
-	public Info(int id, String info,int id_len) {
-		super();
-		this.id = id;
-		this.info = info;
-		this.id_len=id_len;
+	public void setId_infoc(int id_infoc) {
+		this.id_infoc = id_infoc;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getInfo() {
 		return info;
 	}
-
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
 	public int getId_len() {
 		return id_len;
 	}
-
 	public void setId_len(int id_len) {
 		this.id_len = id_len;
 	}
-
 	@Override
 	public String toString() {
-		return "Info [id=" + id + ", info=" + info + ", id_len=" + id_len + "]";
+		return "Info [id_infoc=" + id_infoc + ", info=" + info + ", id_len=" + id_len + "]";
 	}
-
+	
 
 }

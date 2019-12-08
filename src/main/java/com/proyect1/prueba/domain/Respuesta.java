@@ -28,17 +28,6 @@ public class Respuesta implements Serializable {
 	@Column(name = "peso")
 	private int peso;
 
-	public Respuesta() {
-		super();
-	}
-
-	public Respuesta(int id_respuesta, String resp1, int peso) {
-		super();
-		this.id_respuesta = id_respuesta;
-		this.resp1 = resp1;
-		this.peso = peso;
-	}
-
 	public int getId_respuesta() {
 		return id_respuesta;
 	}
@@ -67,5 +56,5 @@ public class Respuesta implements Serializable {
 	public String toString() {
 		return "Respuesta [id_respuesta=" + id_respuesta + ", resp1=" + resp1 + ", peso=" + peso + "]";
 	}
-	
+
 }

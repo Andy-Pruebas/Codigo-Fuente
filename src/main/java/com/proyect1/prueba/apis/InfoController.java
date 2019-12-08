@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.proyect1.prueba.domain.Info;
 import com.proyect1.prueba.repository.InfoRepository;
 
@@ -37,12 +38,12 @@ public class InfoController {
 	@PutMapping("/infos/{id}")
 	public Info updateInfo(@RequestBody Info newInfo, @PathVariable int id){
 		return inforepository.findById(id).map(info->{
-			info.setId(newInfo.getId());
+			info.setId_infoc(newInfo.getId_infoc());
 			info.setInfo(newInfo.getInfo());
 			info.setId_len(newInfo.getId_len());
 			return inforepository.save(info);
 		}).orElseGet(()->{
-			newInfo.setId(id);
+			newInfo.setId_infoc(id);
 			return inforepository.save(newInfo);
 		});
 	}

@@ -1,12 +1,17 @@
 package com.proyect1.prueba.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import java.io.Serializable;
+import java.util.*;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -44,22 +49,9 @@ public class User implements Serializable {
 	@NotNull(message = "campo obligatorio")
 	@Column(name = "contraseña")
 	private String contraseña;
-
-	public User() {
-		super();
-	}
-
-	public User(int id_usuario, String usuario, String nombres, String apellidos, int dni, String correo,
-			String contraseña) {
-		super();
-		this.id_usuario = id_usuario;
-		this.usuario = usuario;
-		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.dni = dni;
-		this.correo = correo;
-		this.contraseña = contraseña;
-	}
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = ("id_usu"), referencedColumnName = "id_usuario")
+	private List<Respondidas> respondidas = new ArrayList<>();
 
 	public int getId_usuario() {
 		return id_usuario;
@@ -117,10 +109,19 @@ public class User implements Serializable {
 		this.contraseña = contraseña;
 	}
 
+	public List<Respondidas> getRespondidas() {
+		return respondidas;
+	}
+
+	public void setRespondidas(List<Respondidas> respondidas) {
+		this.respondidas = respondidas;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id_usuario=" + id_usuario + ", usuario=" + usuario + ", nombres=" + nombres + ", apellidos="
-				+ apellidos + ", dni=" + dni + ", correo=" + correo + ", contraseña=" + contraseña + "]";
+				+ apellidos + ", dni=" + dni + ", correo=" + correo + ", contraseña=" + contraseña + ", respondidas="
+				+ respondidas + "]";
 	}
 
 }
