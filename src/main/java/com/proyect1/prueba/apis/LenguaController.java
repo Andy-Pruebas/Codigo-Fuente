@@ -28,7 +28,7 @@ public class LenguaController {
 		return lenguar.save(lengua);
 	}
 	@GetMapping("/lenguas/{id_leng}")
-	public Optional<Lengua> findid(@PathVariable int id) {
-		return lenguar.findById(id);
+	public Optional<Lengua> findid(@PathVariable int id_leng) {
+		return lenguar.findById(id_leng);
 	}
 }
