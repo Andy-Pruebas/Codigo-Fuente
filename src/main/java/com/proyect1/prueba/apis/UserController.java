@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.proyect1.prueba.domain.User;
 import com.proyect1.prueba.repository.UserRepository;
@@ -29,7 +30,14 @@ public class UserController {
 	}
 
 	@PostMapping("/users")
-	public User guardar(@RequestBody User user) {
+	public User guardar(@RequestParam("usuario")String usuario,@RequestParam("nombres")String nombres,@RequestParam("apellidos")String apellidos,@RequestParam("dni")int dni,@RequestParam("correo")String correo,@RequestParam("contraseña")String contraseña)throws Exception {
+		User user=new User();
+		user.setUsuario(usuario);
+		user.setNombres(nombres);
+		user.setApellidos(apellidos);
+		user.setDni(dni);
+		user.setCorreo(correo);
+		user.setContraseña(contraseña);
 		return repository.save(user);
 	}
 
