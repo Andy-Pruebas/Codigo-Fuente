@@ -24,7 +24,7 @@ public class RespondidasController {
 		return respondidasR.findAll();
 	}
 
-	@PostMapping("/respondidas")
+	@PostMapping("/respondidasuser")
 	public Respondidas Almacenar(@RequestBody Respondidas respondida) {
 		return respondidasR.save(respondida);
 	}

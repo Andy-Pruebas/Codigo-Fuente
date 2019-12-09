@@ -29,7 +29,7 @@ public class UserController {
 		return repository.findAll();
 	}
 
-	@PostMapping("/users")
+	@PostMapping("/registro")
 	public User guardar(@RequestParam("usuario")String usuario,@RequestParam("nombres")String nombres,@RequestParam("apellidos")String apellidos,@RequestParam("dni")int dni,@RequestParam("correo")String correo,@RequestParam("contraseña")String contraseña)throws Exception {
 		User user=new User();
 		user.setUsuario(usuario);
