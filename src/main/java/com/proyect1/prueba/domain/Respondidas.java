@@ -29,10 +29,10 @@ public class Respondidas implements Serializable {
 	private int id_respondidas;
 	@Column(name = "id_usu")
 	private int id_usu;
-	@Column(name = "id_respu")
-	private int id_respu;
+	@Column(name = "respu")
+	private String respu;
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_respuesta", referencedColumnName = "id_respu")
+	@JoinColumn(name = "resp1", referencedColumnName = "respu")
 	private List<Respuesta> respuesta = new ArrayList<>();
 
 	public int getId_respondidas() {
@@ -51,12 +51,12 @@ public class Respondidas implements Serializable {
 		this.id_usu = id_usu;
 	}
 
-	public int getId_respu() {
-		return id_respu;
+	public String getRespu() {
+		return respu;
 	}
 
-	public void setId_respu(int id_respu) {
-		this.id_respu = id_respu;
+	public void setRespu(String respu) {
+		this.respu = respu;
 	}
 
 	public List<Respuesta> getRespuesta() {
@@ -69,7 +69,7 @@ public class Respondidas implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Respondidas [id_respondidas=" + id_respondidas + ", id_usu=" + id_usu + ", id_respu=" + id_respu
+		return "Respondidas [id_respondidas=" + id_respondidas + ", id_usu=" + id_usu + ", respu=" + respu
 				+ ", respuesta=" + respuesta + "]";
 	}
 
