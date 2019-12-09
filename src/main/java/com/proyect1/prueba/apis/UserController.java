@@ -30,7 +30,7 @@ public class UserController {
 	}
 
 	@PostMapping("/users")
-	public User guardar(@RequestParam("usuario")String usuario,@RequestParam("nombres")String nombres,@RequestParam("apellidos")String apellidos,@RequestParam("dni")int dni,@RequestParam("correo")String correo,@RequestParam("contraseña")String contraseña)throws Exception {
+	public User guardar(@RequestParam(required=false,name="usuario")String usuario,@RequestParam(name="nombres")String nombres,@RequestParam(name="apellidos")String apellidos,@RequestParam(name="dni")int dni,@RequestParam(name="correo")String correo,@RequestParam(name="contraseña")String contraseña)throws Exception {
 		User user=new User();
 		user.setUsuario(usuario);
 		user.setNombres(nombres);
