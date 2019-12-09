@@ -29,7 +29,7 @@ public class UserController {
 		return repository.findAll();
 	}
 
-	@PostMapping("/users")
+	@PostMapping("/registro")
 	public User guardar(@RequestBody User user) {
 		return repository.save(user);
 	}
