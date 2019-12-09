@@ -30,14 +30,7 @@ public class UserController {
 	}
 
 	@PostMapping("/users")
-	public User guardar(@RequestParam(required=false,name="usuario")String usuario,@RequestParam(name="nombres")String nombres,@RequestParam(name="apellidos")String apellidos,@RequestParam(name="dni")int dni,@RequestParam(name="correo")String correo,@RequestParam(name="contraseña")String contraseña)throws Exception {
-		User user=new User();
-		user.setUsuario(usuario);
-		user.setNombres(nombres);
-		user.setApellidos(apellidos);
-		user.setDni(dni);
-		user.setCorreo(correo);
-		user.setContraseña(contraseña);
+	public User guardar(@RequestBody User user) {
 		return repository.save(user);
 	}
 
